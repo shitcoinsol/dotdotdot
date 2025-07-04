@@ -1,0 +1,119 @@
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(255,255,255,0.95) 100px, #fcfbf7 300px);
+  font-family: 'EB Garamond', serif;
+  height: 100vh;
+  overflow: hidden;
+  transition: background 0.2s ease;
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.dot {
+  width: 220px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border: 2px solid rgba(120, 100, 80, 0.3); /* soft frame border */
+  box-shadow: 0 4px 14px rgba(0,0,0,0.05);   /* light shadow for depth */
+  position: relative;
+}
+
+.tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translate(-50%, -12px);
+  background: #fffdf8;
+  border: 1px solid #ccc;
+  padding: 10px 14px;
+  font-size: 15px;
+  line-height: 1.4;
+  color: #222;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  white-space: nowrap;
+}
+
+.container:hover .tooltip {
+  opacity: 1;
+}
+
+.caption {
+  margin-top: 24px;
+  font-size: 15px;
+  color: #333;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+.floating-links {
+  position: fixed;
+  bottom: 20px;
+  right: 24px;
+  font-size: 15px;
+  color: #666;
+  opacity: 0.85;
+}
+
+.floating-links a {
+  color: inherit;
+  text-decoration: none;
+  margin: 0 6px;
+}
+
+.floating-links a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+
+@media (max-width: 768px) {
+  .dot {
+    width: 160px;
+  }
+
+  .tooltip {
+    font-size: 13px;
+    transform: translate(-50%, -10px);
+  }
+
+  .caption {
+    font-size: 14px;
+  }
+
+  .floating-links {
+    font-size: 13px;
+    bottom: 12px;
+    right: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dot {
+    width: 130px;
+  }
+
+  .tooltip {
+    font-size: 12px;
+    transform: translate(-50%, -8px);
+  }
+
+  .caption {
+    font-size: 13px;
+  }
+
+  .floating-links {
+    font-size: 12px;
+    text-align: right;
+  }
+}
